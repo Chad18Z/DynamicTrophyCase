@@ -81,6 +81,13 @@ void Trophy::Print()
 	cout << *m_level << " : ";
 	cout << ColorToString(*m_color) << " ]" << endl;
 }
+ostream& operator<< (ostream& sout, const Trophy& trophy)
+{
+	sout << "[ " << trophy.m_name << " : ";
+	sout << trophy.m_level << " : ";
+	sout << trophy.m_color << " ]";
+	return sout;
+}
 // this function converts a Color value to a string
 string Trophy::ColorToString(Color& color)
 {
@@ -102,3 +109,4 @@ string Trophy::ColorToString(Color& color)
 
 	return "";
 }
+

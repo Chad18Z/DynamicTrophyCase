@@ -25,12 +25,14 @@ public:
 	void SetName(string& name);
 	void SetLevel(int level);
 	void Print();
-
+	friend ostream& operator<< (ostream& sout, const Trophy& trophy);
 
 private:
 	string* m_name; // holds the trophy's name
 	int* m_level; // holds the trophy's level
 	Color* m_color; // holds the trophy's color
 };
+
+
 
 #endif
