@@ -1,6 +1,7 @@
 #include "Trophy.h"
 #include "Trophycase.h"
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -19,8 +20,9 @@ void ChangeColorTrophy();
 void PrintTrophies();
 void PrintMenu();
 int FindIndexOfTrophy(string&);
+void CreateNewTrophyCase();
 
-Trophycase* Trophies = new Trophycase(); // declare a trophycase
+vector <Trophycase*> trophyCase;
 
 // Entry point for the application
 int main()
@@ -40,27 +42,39 @@ int main()
 		switch (inputFromUser)
 		{
 		case 1:
-			AddNewTrophy(); // User chooses to add a trophy
+			CreateNewTrophyCase(); // User chooses to add a trophycase
 			break;
-		case 2:
-			CopyTrophy(); // User chooses to copy a trophy
-			break;
-		case 3:
-			DeleteTrophy(); // User chooses to delete a trophy
-			break;
-		case 4:
-			RenameTrophy(); // User chooses to rename a trophy
-			break;
+		//case 2:
+		//	CopyTrophyCaseConstr(); // User chooses to copy a trophycase
+		//	break;
+		//case 3:
+		//	CopyTrophyCaseAssign(); // User chooses to copy a trophy
+		//	break;
+		//case 4:
+		//	DeleteTrophyCase(); // User chooses to delete a trophycase
+		//	break;
 		case 5:
-			ChangeLevelTrophy(); // User chooses to change the level of a trophy
+			AddNewTrophy(); // User chooses to add a new trophy
 			break;
 		case 6:
-			ChangeColorTrophy(); // User chooses to change the color of a trophy
+			CopyTrophy(); // User chooses to copy a trophy
 			break;
 		case 7:
-			PrintTrophies(); // User chooses to print all of the trophies
+			DeleteTrophy(); // User chooses to delete a trophy
 			break;
 		case 8:
+			RenameTrophy(); // User chooses to rename a trophy
+			break;
+		case 9:
+			ChangeLevelTrophy(); // User chooses to change the level of a trophy
+			break;
+		case 10:
+			ChangeColorTrophy(); // User chooses to change the color of a trophy
+			break;
+		case 11:
+			PrintTrophies(); // User chooses to print all trophies
+			break;
+		case 12:
 			ExitApplication(); // User chooses to exit application
 			break;
 		}
@@ -82,15 +96,24 @@ void PrintMenu()
 {
 	cout << "********************************************************************************" << endl
 		<< "* Please select an option:" << endl
-		<< "* 1 - Add a new Trophy" << endl
-		<< "* 2 - Copy a Trophy" << endl
-		<< "* 3 - Delete a Trophy" << endl
-		<< "* 4 - Rename a Trophy" << endl
-		<< "* 5 - Change the level of a Trophy" << endl
-		<< "* 6 - Change the color of a Trophy" << endl
-		<< "* 7 - Print all the Trophies" << endl
-		<< "* 8 - Exit the program" << endl
+		<< "* 1 - Create a new TrophyCase" << endl
+		<< "* 2 - Copy a TrophyCase (using Copy Contructor)" << endl
+		<< "* 3 - Copy a TrophyCase (using Assignment Operator)" << endl
+		<< "* 4 - Delete a TrophyCase" << endl
+		<< "* 5 - Add a new Trophy" << endl
+		<< "* 6 - Copy a Trophy" << endl
+		<< "* 7 - Delete a Trophy" << endl
+		<< "* 8 - Rename a Trophy" << endl
+		<< "* 9 - Change the level of a Trophy" << endl
+		<< "* 10 - Change the color of a Trophy" << endl
+		<< "* 11 - Print all the Trophies" << endl
+		<< "* 12 - Exit the program" << endl
 		<< "********************************************************************************" << endl;
+}
+// create a new trophycase
+void CreateNewTrophyCase()
+{
+	trophyCase.push_back(new Trophycase);
 }
 // This function displays the goodbye message
 void DisplayGoodbyeMessage()
@@ -160,129 +183,129 @@ void AddNewTrophy()
 	} while (tempColor != "");
 
 
-	Trophy newTrophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
-	Trophies->AddTrophy(newTrophy);
-	cout << "New trophy added" << endl;
+	//Trophy newTrophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
+	//Trophies.push_back(new C)
+	//cout << "New trophy added" << endl;
 }
 
 // Copies one trophy's information to a new trophy
 void CopyTrophy()
 {
-	string trophyName = GetString("Please enter the trophy's name that you want to copy: ");
-	int indexOfTrophy = FindIndexOfTrophy(trophyName);
-	Trophy newTrophy(Trophies->GetTrophy(indexOfTrophy));
-	Trophies->AddTrophy(newTrophy); // add new trophy to array
+	//string trophyName = GetString("Please enter the trophy's name that you want to copy: ");
+	//int indexOfTrophy = FindIndexOfTrophy(trophyName);
+	//Trophy newTrophy(Trophies->GetTrophy(indexOfTrophy));
+	//Trophies->AddTrophy(newTrophy); // add new trophy to array
 }
 
 // Remove a trohpy from the array.....also frees the memory
 void DeleteTrophy()
 {
-	int indexOfTrophy;
-	
-	do 
-	{
-		string trophyName = GetString("Please enter the trophy's name that you want to delete: ");
-		indexOfTrophy = FindIndexOfTrophy(trophyName);
-	} while (indexOfTrophy == -1);
-		
-	Trophies->DeleteTrophy(indexOfTrophy);
-	cout << endl << "Trophy deleted." << endl;
+	//int indexOfTrophy;
+	//
+	//do 
+	//{
+	//	string trophyName = GetString("Please enter the trophy's name that you want to delete: ");
+	//	indexOfTrophy = FindIndexOfTrophy(trophyName);
+	//} while (indexOfTrophy == -1);
+	//	
+	//Trophies->DeleteTrophy(indexOfTrophy);
+	//cout << endl << "Trophy deleted." << endl;
 }
 // Change a trophy's name
 void RenameTrophy()
 {
-	int indexOfTrophy;
-	do 
-	{
-		string trophyName = GetString("Please enter the trophy's name that you want to rename: ");
-		indexOfTrophy = FindIndexOfTrophy(trophyName);
-	} while (indexOfTrophy == -1);
-	
-	
-	string NewName = GetString("Please enter the trophy's new name: ");
-	Trophy& trophy = Trophies->GetTrophy(indexOfTrophy);
-	trophy.SetName(NewName);
-	cout << endl << "Name Changed to: " << NewName << endl;
+	//int indexOfTrophy;
+	//do 
+	//{
+	//	string trophyName = GetString("Please enter the trophy's name that you want to rename: ");
+	//	indexOfTrophy = FindIndexOfTrophy(trophyName);
+	//} while (indexOfTrophy == -1);
+	//
+	//
+	//string NewName = GetString("Please enter the trophy's new name: ");
+	//Trophy& trophy = Trophies->GetTrophy(indexOfTrophy);
+	//trophy.SetName(NewName);
+	//cout << endl << "Name Changed to: " << NewName << endl;
 }
 // Change a trophy's level
 void ChangeLevelTrophy()
 {
-	int indexOfTrophy;
-	do 
-	{
-		string trophyName = GetString("Please enter the trophy's name that you want to relevel: ");
-		indexOfTrophy = FindIndexOfTrophy(trophyName);
-	} while (indexOfTrophy == -1);
+	//int indexOfTrophy;
+	//do 
+	//{
+	//	string trophyName = GetString("Please enter the trophy's name that you want to relevel: ");
+	//	indexOfTrophy = FindIndexOfTrophy(trophyName);
+	//} while (indexOfTrophy == -1);
 
-	if (indexOfTrophy == -1)
-	{
-		cout << "Not a valid name";
-		return;
-	}
-	int trophyLevel = GetShiftValue("Please enter the trophy's level: ");
-	Trophy& trophy = Trophies->GetTrophy(indexOfTrophy);
-	trophy.SetLevel(trophyLevel);
-	cout << endl << "Trophy's level changed" << endl;
+	//if (indexOfTrophy == -1)
+	//{
+	//	cout << "Not a valid name";
+	//	return;
+	//}
+	//int trophyLevel = GetShiftValue("Please enter the trophy's level: ");
+	//Trophy& trophy = Trophies->GetTrophy(indexOfTrophy);
+	//trophy.SetLevel(trophyLevel);
+	//cout << endl << "Trophy's level changed" << endl;
 }
 // Change a trophy's color
 void ChangeColorTrophy()
 {
-	int indexOfTrophy;
-	do
-	{
-		string trophyName = GetString("Please enter the trophy's name which you want to change the color: ");
-		indexOfTrophy = FindIndexOfTrophy(trophyName);
-	} while (indexOfTrophy == -1);
+	//int indexOfTrophy;
+	//do
+	//{
+	//	string trophyName = GetString("Please enter the trophy's name which you want to change the color: ");
+	//	indexOfTrophy = FindIndexOfTrophy(trophyName);
+	//} while (indexOfTrophy == -1);
 
-	Color trophyColor = GOLD;
-	string tempColor = "";
-	do
-	{
-		string tempColor = GetString("Please enter the trophy's color  BRONZE, SILVER, or GOLD (case sensitive): ");
-		if (tempColor == "GOLD")
-		{
-			Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
-			newTrophy.SetColor(GOLD);
-			tempColor = "";
-		}
-		else if (tempColor == "BRONZE")
-		{
-			Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
-			newTrophy.SetColor(BRONZE);
-			tempColor = "";
-		}
-		else if (tempColor == "SILVER")
-		{
-			Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
-			newTrophy.SetColor(SILVER);
-			tempColor = "";
-		}
-	} while (tempColor != "");
+	//Color trophyColor = GOLD;
+	//string tempColor = "";
+	//do
+	//{
+	//	string tempColor = GetString("Please enter the trophy's color  BRONZE, SILVER, or GOLD (case sensitive): ");
+	//	if (tempColor == "GOLD")
+	//	{
+	//		Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
+	//		newTrophy.SetColor(GOLD);
+	//		tempColor = "";
+	//	}
+	//	else if (tempColor == "BRONZE")
+	//	{
+	//		Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
+	//		newTrophy.SetColor(BRONZE);
+	//		tempColor = "";
+	//	}
+	//	else if (tempColor == "SILVER")
+	//	{
+	//		Trophy& newTrophy = Trophies->GetTrophy(indexOfTrophy);
+	//		newTrophy.SetColor(SILVER);
+	//		tempColor = "";
+	//	}
+	//} while (tempColor != "");
 }
 // Displays all of the existing trophies to the screen
 void PrintTrophies()
 {
-	cout << "All existing trophies." << endl << endl;
-	for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
-	{
-		Trophy& trophy = Trophies->GetTrophy(i);
-		trophy.Print();
-	}
+	//cout << "All existing trophies." << endl << endl;
+	//for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
+	//{
+	//	Trophy& trophy = Trophies->GetTrophy(i);
+	//	cout << trophy << endl;
+	//}
 }
 // this method find the index of the trophy. Assuming they all have unique names.
-int FindIndexOfTrophy(string& testString)
-{
-	int index = -1;
-	for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
-	{
-		string name = Trophies->GetTrophy(i).GetName();
-		if (name.substr(0, name.find(' ')) == testString.substr(0, testString.find(' ')))
-		{
-			index = i;
-		}
-	}
-	return index;
-}
+//int FindIndexOfTrophy(string& testString)
+//{
+//	//int index = -1;
+//	//for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
+//	//{
+//	//	string name = Trophies->GetTrophy(i).GetName();
+//	//	if (name.substr(0, name.find(' ')) == testString.substr(0, testString.find(' ')))
+//	//	{
+//	//		index = i;
+//	//	}
+//	//}
+//	//return index;
+//}
 
 
 

@@ -74,20 +74,36 @@ void Trophy::SetColor(Color color)
 {
 	*m_color = color;
 }
-// print the trophy's information to the screen
-void Trophy::Print()
-{
-	cout << "[ " << *m_name << " : ";
-	cout << *m_level << " : ";
-	cout << ColorToString(*m_color) << " ]" << endl;
-}
 ostream& operator<< (ostream& sout, const Trophy& trophy)
 {
-	sout << "[ " << trophy.m_name << " : ";
-	sout << trophy.m_level << " : ";
-	sout << trophy.m_color << " ]";
+	sout << "[ " << *trophy.m_name << " : ";
+	sout << *trophy.m_level << " : ";
+	switch (*trophy.m_color)
+	{
+	case 0:
+		sout << "BRONZE";
+		break;
+	case 1:
+		sout << "SILVER";
+		break;
+	case 2:
+		sout << "GOLD";
+		break;
+	default:
+		sout << "ERROR";
+		break;
+	}
+	sout << " ]";
 	return sout;
 }
+//// print the trophy's information to the screen
+//void Trophy::Print()
+//{
+//	cout << "[ " << *m_name << " : ";
+//	cout << *m_level << " : ";
+//	cout << ColorToString(*m_color) << " ]" << endl;
+//}
+
 // this function converts a Color value to a string
 string Trophy::ColorToString(Color& color)
 {
@@ -109,4 +125,5 @@ string Trophy::ColorToString(Color& color)
 
 	return "";
 }
+
 

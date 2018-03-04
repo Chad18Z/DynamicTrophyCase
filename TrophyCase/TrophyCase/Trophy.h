@@ -24,7 +24,7 @@ public:
 	void SetColor(Color color);
 	void SetName(string& name);
 	void SetLevel(int level);
-	void Print();
+	//void Print();
 	friend ostream& operator<< (ostream& sout, const Trophy& trophy);
 
 private:

@@ -13,16 +13,19 @@ class Trophycase
 public:
 	Trophycase();
 	~Trophycase();
-	void AddTrophy(Trophy& trophy);
+	Trophycase(Trophycase& trophycaseToCopy);
+	void AddTrophy(Trophy& trophy); // copy contructor
 	int GetNumberOfTrophies();
 	int GetSizeOfTrophycase();
 	Trophy& GetTrophy(int index);
 	void DeleteTrophy(int index);
+	friend ostream& operator<< (ostream& sout, const Trophycase& trophy);
+	Trophycase& operator= (const Trophycase& trophy);
 
 private:
-	Trophy* Trophies;
-	int m_size; // holds the trophy's level
-	int m_count; // holds the trophy's color
+	Trophy* Trophies = new Trophy[5];
+	int* m_size; // holds the trophy's level
+	int* m_count; // holds the trophy's color
 };
 
 #endif
