@@ -117,9 +117,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Trophy.cpp" />
+    <ClCompile Include="Trophycase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Trophy.h" />
+    <ClInclude Include="Trophycase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

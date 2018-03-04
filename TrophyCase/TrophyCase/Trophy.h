@@ -13,6 +13,9 @@ class Trophy
 {
 public:
 	Trophy();
+	~Trophy();
+	Trophy(Trophy& trophyToCopy);
+	Trophy& operator=(const Trophy& trophy);
 	Trophy(string& name, int level, Color& color);
 	string GetName();
 	string ColorToString(Color& color);
@@ -25,9 +28,9 @@ public:
 
 
 private:
-	string m_name; // holds the trophy's name
-	int m_level; // holds the trophy's level
-	Color m_color; // holds the trophy's color
+	string* m_name; // holds the trophy's name
+	int* m_level; // holds the trophy's level
+	Color* m_color; // holds the trophy's color
 };
 
 #endif
