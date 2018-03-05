@@ -116,7 +116,13 @@ void PrintMenu()
 // create a new trophycase
 void CreateNewTrophyCase()
 {
-	trophyCase.push_back(new Trophycase[0]);
+	Trophycase* tcase = new Trophycase();
+	trophyCase.push_back(tcase);
+
+	for (int i = 0; i < trophyCase.size(); i++)
+	{
+		cout << *trophyCase[i] << endl;
+	}
 }
 // This function displays the goodbye message
 void DisplayGoodbyeMessage()
@@ -189,20 +195,22 @@ void AddNewTrophy()
 	} while (tempColor != "");
 
 
-	//Trophy* newTrophy = new Trophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
-	//trophyCase[caseID]
-
-
+	Trophy* newTrophy = new Trophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
+	trophyCase[caseID]->AddTrophy(*newTrophy);
 	cout << "New trophy added" << endl;
 }
 
 // Copies one trophy's information to a new trophy
 void CopyTrophy()
 {
-	//string trophyName = GetString("Please enter the trophy's name that you want to copy: ");
-	//int indexOfTrophy = FindIndexOfTrophy(trophyName);
-	//Trophy newTrophy(Trophies->GetTrophy(indexOfTrophy));
-	//Trophies->AddTrophy(newTrophy); // add new trophy to array
+	int caseID = GetShiftValue("Please enter the numeric ID of the Trophycase that you would like this trophy added to: ");
+	caseID -= 1; // decrement the ID so that it becomes zero-based
+
+	string trophyName = GetString("Please enter the trophy's name that you want to copy: ");
+	int indexOfTrophy = FindIndexOfTrophy(trophyName);
+
+	Trophy* newTrophy = new Trophy(trophyCase[caseID]->GetTrophy(indexOfTrophy));
+	trophyCase[caseID]->AddTrophy(*newTrophy);
 }
 
 // Remove a trohpy from the array.....also frees the memory
@@ -293,34 +301,33 @@ void ChangeColorTrophy()
 // Displays all of the existing trophies to the screen
 void PrintTrophies()
 {
-	//cout << "All existing trophies." << endl << endl;
-	//for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
-	//{
-	//	Trophy& trophy = Trophies->GetTrophy(i);
-	//	cout << trophy << endl;
-	//}
+	cout << "All existing trophies." << endl << endl;
+	for (int i = 0; i < trophyCase.size(); i++)
+	{
+		cout << *trophyCase[i] << endl;
+	}
 }
 // this method find the index of the trophy. Assuming they all have unique names.
-//int FindIndexOfTrophy(string& testString)
-//{
-//	//int index = -1;
-//	//for (int i = 0; i < Trophies->GetNumberOfTrophies(); i++)
-//	//{
-//	//	string name = Trophies->GetTrophy(i).GetName();
-//	//	if (name.substr(0, name.find(' ')) == testString.substr(0, testString.find(' ')))
-//	//	{
-//	//		index = i;
-//	//	}
-//	//}
-//	//return index;
-//}
+int FindIndexOfTrophy(string& testString, int indexOfTrophycase)
+{
+	int index = -1;
+	for (int i = 0; i < trophyCase[indexOfTrophycase]->GetSizeOfTrophycase(); i++)
+	{
+		Trophy* temp(trophyCase[indexOfTrophycase]->GetTrophy(i).GetName());
+		if (name.substr(0, name.find(' ')) == testString.substr(0, testString.find(' ')))
+		{
+			index = i;
+		}
+	}
+	return index;
+}
 
 // Copies a trophycase using the copy constructor
 void CopyTrophyCaseConstr()
 {
 	int trophycaseToCopy = GetShiftValue("Please enter the numeric ID of the Trophycase that you want to create a copy of: ");
 	trophycaseToCopy -= 1; // decrement the ID so that it becomes zero-based
-	Trophycase* newCase = new Trophycase(*trophyCase[trophycaseToCopy]);
+	Trophycase* newCase(trophyCase[trophycaseToCopy]);
 	trophyCase.push_back(newCase);
 	cout << endl << "Trophycase copied" << endl;
 }

@@ -19,13 +19,13 @@ public:
 	int GetSizeOfTrophycase();
 	Trophy& GetTrophy(int index);
 	void DeleteTrophy(int index);
-	friend ostream& operator<< (ostream& sout, const Trophycase& trophy);
+	friend ostream& operator<< (ostream& sout, const Trophycase& trophycase);
 	Trophycase& operator= (const Trophycase& trophy);
 
 private:
 	Trophy** Trophies;
-	int* m_size; // holds the trophy's level
-	int* m_count; // holds the trophy's color
+	int* m_size; // size of the case
+	int* m_count; // number of trophies in case
 };
 
 #endif
