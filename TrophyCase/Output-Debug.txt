@@ -1,11 +1,15 @@
-﻿'TrophyCase.exe' (Win32): Loaded 'C:\Users\Chad\Documents\DynamicTrophyCase\TrophyCase\Debug\TrophyCase.exe'. Symbols loaded.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ntdll.dll'. Cannot find or open the PDB file.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\kernel32.dll'. Cannot find or open the PDB file.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\KernelBase.dll'. Cannot find or open the PDB file.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\vcruntime140d.dll'. Cannot find or open the PDB file.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\msvcp140d.dll'. Cannot find or open the PDB file.
-'TrophyCase.exe' (Win32): Loaded 'C:\Windows\SysWOW64\ucrtbased.dll'. Cannot find or open the PDB file.
-The thread 0x3560 has exited with code 0 (0x0).
-The thread 0x2cc8 has exited with code 0 (0x0).
-The thread 0x3b4c has exited with code 0 (0x0).
-The program '[4164] TrophyCase.exe' has exited with code 0 (0x0).
+﻿'TrophyCase.exe' (Win32): Loaded 'G:\Users\Chad\Documents\DynamicTrophyCase\TrophyCase\x64\Debug\TrophyCase.exe'. Symbols loaded.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Unloaded 'C:\Windows\System32\ucrtbased.dll'
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'TrophyCase.exe' (Win32): Unloaded 'C:\Windows\System32\ucrtbased.dll'
+'TrophyCase.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+The thread 0x2108 has exited with code 0 (0x0).
+The thread 0x2d5c has exited with code 0 (0x0).
+The thread 0x1300 has exited with code 0 (0x0).
+The program '[8344] TrophyCase.exe' has exited with code 0 (0x0).

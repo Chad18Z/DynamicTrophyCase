@@ -21,6 +21,9 @@ void PrintTrophies();
 void PrintMenu();
 int FindIndexOfTrophy(string&);
 void CreateNewTrophyCase();
+void CopyTrophyCaseConstr();
+void CopyTrophyCaseAssign();
+void DeleteTrophyCase();
 
 vector <Trophycase*> trophyCase;
 
@@ -44,15 +47,15 @@ int main()
 		case 1:
 			CreateNewTrophyCase(); // User chooses to add a trophycase
 			break;
-		//case 2:
-		//	CopyTrophyCaseConstr(); // User chooses to copy a trophycase
-		//	break;
-		//case 3:
-		//	CopyTrophyCaseAssign(); // User chooses to copy a trophy
-		//	break;
-		//case 4:
-		//	DeleteTrophyCase(); // User chooses to delete a trophycase
-		//	break;
+		case 2:
+			CopyTrophyCaseConstr(); // User chooses to copy a trophycase
+			break;
+		case 3:
+			CopyTrophyCaseAssign(); // User chooses to copy a trophy
+			break;
+		case 4:
+			DeleteTrophyCase(); // User chooses to delete a trophycase
+			break;
 		case 5:
 			AddNewTrophy(); // User chooses to add a new trophy
 			break;
@@ -113,7 +116,7 @@ void PrintMenu()
 // create a new trophycase
 void CreateNewTrophyCase()
 {
-	trophyCase.push_back(new Trophycase);
+	trophyCase.push_back(new Trophycase[0]);
 }
 // This function displays the goodbye message
 void DisplayGoodbyeMessage()
@@ -157,6 +160,9 @@ string GetString(string message)
 // Adds a new trophy to the array
 void AddNewTrophy()
 {
+	int caseID = GetShiftValue("Please enter the numeric ID of the Trophycase that you would like this trophy added to: ");
+	caseID -= 1; // decrement the ID so that it becomes zero-based
+
 	string trophyName = GetString("Please enter the trophy's name: ");
 	int trophyLevel = GetShiftValue("Please enter the trophy's level: ");
 	Color trophyColor;
@@ -183,9 +189,11 @@ void AddNewTrophy()
 	} while (tempColor != "");
 
 
-	//Trophy newTrophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
-	//Trophies.push_back(new C)
-	//cout << "New trophy added" << endl;
+	//Trophy* newTrophy = new Trophy(trophyName, trophyLevel, trophyColor); // instantiate new trophy
+	//trophyCase[caseID]
+
+
+	cout << "New trophy added" << endl;
 }
 
 // Copies one trophy's information to a new trophy
@@ -306,6 +314,30 @@ void PrintTrophies()
 //	//}
 //	//return index;
 //}
+
+// Copies a trophycase using the copy constructor
+void CopyTrophyCaseConstr()
+{
+	int trophycaseToCopy = GetShiftValue("Please enter the numeric ID of the Trophycase that you want to create a copy of: ");
+	trophycaseToCopy -= 1; // decrement the ID so that it becomes zero-based
+	Trophycase* newCase = new Trophycase(*trophyCase[trophycaseToCopy]);
+	trophyCase.push_back(newCase);
+	cout << endl << "Trophycase copied" << endl;
+}
+// Copies a trophycase using the assignment operator
+void CopyTrophyCaseAssign()
+{
+	int trophycaseToCopy = GetShiftValue("Please enter the numeric ID of the Trophycase that you want to create a copy of: ");
+	trophycaseToCopy -= 1; // decrement the ID so that it becomes zero-based
+	Trophycase* newCase = trophyCase[trophycaseToCopy];
+	trophyCase.push_back(newCase);
+}
+// Deletes a trophycase within the vector
+void DeleteTrophyCase()
+{
+	int trophycaseToCopy = GetShiftValue("Please enter the numeric ID of the Trophycase that you want to delete: ");
+	trophycaseToCopy -= 1; // decrement the ID so that it becomes zero-based
+}
 
 
 

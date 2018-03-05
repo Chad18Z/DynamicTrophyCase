@@ -23,7 +23,7 @@ public:
 	Trophycase& operator= (const Trophycase& trophy);
 
 private:
-	Trophy* Trophies = new Trophy[5];
+	Trophy** Trophies;
 	int* m_size; // holds the trophy's level
 	int* m_count; // holds the trophy's color
 };
