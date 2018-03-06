@@ -310,10 +310,11 @@ void PrintTrophies()
 // this method find the index of the trophy. Assuming they all have unique names.
 int FindIndexOfTrophy(string& testString, int indexOfTrophycase)
 {
+	string* name;
 	int index = -1;
 	for (int i = 0; i < trophyCase[indexOfTrophycase]->GetSizeOfTrophycase(); i++)
 	{
-		Trophy* temp(trophyCase[indexOfTrophycase]->GetTrophy(i).GetName());
+		
 		if (name.substr(0, name.find(' ')) == testString.substr(0, testString.find(' ')))
 		{
 			index = i;
